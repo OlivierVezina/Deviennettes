@@ -13,6 +13,7 @@ MAX_ESSAIS = 10
 WIN = "GGG"
 LOST = "PPP"
 
+
 def main():
     """
 
@@ -22,6 +23,7 @@ def main():
     print("J'ai choisi un nombre entier entr 1 et 100")
     print("Pouvez-vous le deviner?")
     devinette()
+
 
 def devinette():
     """
@@ -69,8 +71,10 @@ def devinette():
             recommencer()
 
 
-
 def recommencer():
+    """
+        Methode qui demande a l'utilisateur veut recommencer une partie
+    """
     global nbParties
     while True:
         choix = input(f"Voulez-vous rejouer? [O/N] ")
