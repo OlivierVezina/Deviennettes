@@ -23,19 +23,30 @@ def devinette():
         Fonction pour deviner le nombre
     """
     nbRandom = randrange(1, 101)
-    cpt = 0
+    cpt = 1
     while True:
-        cpt = cpt + 1
-        guess = int(input(f"Essaie {cpt}:"))
-        if guess == nbRandom:
-            print("Bravo, vous avez deviné le nombre")
-            break
-        elif guess < nbRandom:
-            print("Votre nombre est trop petit...")
-            continue
+        if cpt <= 10:
+            saisie = input(f"Essaie {cpt}: ")
+            if saisie.lstrip('-+').isdigit():
+                guess = int(saisie)
+                if guess == nbRandom:
+                    print("Bravo, vous avez deviné le nombre")
+                    break
+                elif guess < nbRandom:
+                    print("Votre nombre est trop petit...")
+                    cpt = cpt + 1
+                    continue
+                else:
+                    print("Votre nombre est trop grand...")
+                    cpt = cpt + 1
+                    continue
+            else:
+                print("Erreur: Entrer un nombre entier svp")
+                continue
         else:
-            print("Votre nombre est trop grand...")
-            continue
+            print("Désolé, vous avez échoué après 10 tentatives ")
+            print(f"Le nombre choisi était: {nbRandom}")
+            break
 
 
 if __name__ == '__main__':
